@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { Image, Link, BlitzPage, useMutation, Routes } from "blitz"
+import { Image, Link, BlitzPage, useMutation, useQuery } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
@@ -28,6 +28,8 @@ const UserInfo = () => {
         <div>
           User id: <code>{currentUser.id}</code>
           <br />
+          User name: <code>{currentUser.name}</code>
+          <br />
           User role: <code>{currentUser.role}</code>
         </div>
       </>
@@ -35,14 +37,9 @@ const UserInfo = () => {
   } else {
     return (
       <>
-        <Link href={Routes.SignupPage()}>
+        <Link href="/api/auth/google">
           <a className="button small">
-            <strong>Sign Up</strong>
-          </a>
-        </Link>
-        <Link href={Routes.LoginPage()}>
-          <a className="button small">
-            <strong>Login</strong>
+            <strong>Log In With Google</strong>
           </a>
         </Link>
       </>

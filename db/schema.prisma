@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -20,6 +20,9 @@ model User {
   email          String   @unique
   hashedPassword String?
   role           String   @default("USER")
+
+  time  Float?
+  error Float?
 
   tokens   Token[]
   sessions Session[]
