@@ -4,6 +4,8 @@ import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
 import logo from "public/logo.png"
+import updateName from "app/users/mutations/updateName"
+import updateTime from "app/users/mutations/updateTime"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -13,6 +15,21 @@ import logo from "public/logo.png"
 const UserInfo = () => {
   const currentUser = useCurrentUser()
   const [logoutMutation] = useMutation(logout)
+
+  const [updateNameMutation] = useMutation(updateName)
+  const [updateTimeMutation] = useMutation(updateTime)
+
+  const handleClick = async () => {
+    if (currentUser) {
+      await updateTimeMutation({ ...currentUser, time: 5.001, error: 1.002 })
+    }
+  }
+
+  const handleClickName = async () => {
+    if (currentUser) {
+      await updateNameMutation({ ...currentUser, name: "きじくん" })
+    }
+  }
 
   if (currentUser) {
     return (
@@ -30,7 +47,13 @@ const UserInfo = () => {
           <br />
           User name: <code>{currentUser.name}</code>
           <br />
-          User role: <code>{currentUser.role}</code>
+          <button className="button small" onClick={handleClick}>
+            Click Here!
+          </button>
+          <br />
+          <button className="button small" onClick={handleClickName}>
+            Change Name!
+          </button>
         </div>
       </>
     )
