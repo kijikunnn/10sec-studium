@@ -8,7 +8,7 @@ yarn install
 
 まだ Blitz.js をインストールしていない場合はこちらを参考にインストールしてください．
 
-[Get Started with Blitz](https://blitzjs.com/docs/get-started)
+- [Get Started with Blitz](https://blitzjs.com/docs/get-started)
 
 Blitz.js をインストール後
 
