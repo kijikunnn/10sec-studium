@@ -51,7 +51,7 @@ const UserInfo = () => {
             Click Here!
           </button>
           <br />
-          <button className="button small" onClick={handleClickName}>
+          <button className="bg-gray-800" onClick={handleClickName}>
             Change Name!
           </button>
         </div>

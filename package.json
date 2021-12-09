@@ -18,6 +18,12 @@
     "semi": false,
     "printWidth": 100
   },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint --fix"
@@ -37,14 +43,17 @@
   "devDependencies": {
     "@types/preview-email": "2.0.1",
     "@types/react": "17.0.37",
+    "autoprefixer": "10.4.0",
     "eslint": "7.32.0",
     "husky": "7.0.4",
     "lint-staged": "11.3.0-beta.2",
+    "postcss": "8.4.4",
     "prettier": "2.5.1",
     "prettier-plugin-prisma": "3.6.0",
     "pretty-quick": "3.1.2",
     "preview-email": "3.0.5",
     "prisma": "3.6.0",
+    "tailwindcss": "2.2.19",
     "typescript": "~4.5"
   },
   "private": true
