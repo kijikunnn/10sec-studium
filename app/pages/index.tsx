@@ -4,6 +4,7 @@ import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
 import logo from "public/logo.png"
+import GoogleLogin from "public/btn_google_signin_dark_normal_web@2x.png"
 import updateName from "app/users/mutations/updateName"
 import updateTime from "app/users/mutations/updateTime"
 
@@ -61,8 +62,8 @@ const UserInfo = () => {
     return (
       <>
         <Link href="/api/auth/google">
-          <a className="button small">
-            <strong>Log In With Google</strong>
+          <a className="w-[300px]">
+            <Image src={GoogleLogin} alt="Login Button" />
           </a>
         </Link>
       </>
