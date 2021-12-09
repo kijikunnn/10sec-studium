@@ -2,7 +2,6 @@ import {
   AppProps,
   ErrorBoundary,
   ErrorComponent,
-  AuthenticationError,
   AuthorizationError,
   ErrorFallbackProps,
   useQueryErrorResetBoundary,
