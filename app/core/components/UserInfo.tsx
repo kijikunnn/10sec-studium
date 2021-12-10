@@ -10,14 +10,6 @@ export const UserInfo: VFC = () => {
   const currentUser = useCurrentUser()
   const [logoutMutation] = useMutation(logout)
 
-  // const [updateNameMutation] = useMutation(updateName)
-
-  // const handleClickName = async () => {
-  //   if (currentUser) {
-  //     await updateNameMutation({ ...currentUser, name: "きじくん" })
-  //   }
-  // }
-
   if (currentUser) {
     return (
       <div className="flex flex-col">
