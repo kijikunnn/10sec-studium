@@ -13,7 +13,7 @@ export default passportAuth({
           clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
           callbackURL:
             process.env.NODE_ENV === "production"
-              ? "https://10sec-studium-2b2nxppxm-kijikunnn.vercel.app/api/auth/google/callback"
+              ? "https://10sec-studium.vercel.app/api/auth/google/callback"
               : "http://localhost:3000/api/auth/google/callback",
           scope: ["email", "profile"],
         },
