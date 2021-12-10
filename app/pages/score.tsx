@@ -1,17 +1,25 @@
-import { BlitzPage, Link, useQuery } from "blitz"
+import { BlitzPage, Link, useQuery, useRouter } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import { TitleWithLink } from "app/core/components/TitleWithLink"
 import getUsers from "app/users/queries/getUsers"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 
 const Score: BlitzPage = () => {
+  const router = useRouter()
   const currentUser = useCurrentUser()
   const [{ users, ids }] = useQuery(getUsers, { orderBy: { error: "asc" } })
 
-  const myRank = ids.indexOf(currentUser?.id) + 1
+  if (!currentUser) {
+    alert("ログインしてください")
+    router.push("/")
+  }
 
-  const editError = (time: number, error: number): string => {
-    if (error === 0) {
+  const myRank: number = ids.indexOf(currentUser?.id || 0) + 1
+
+  const editError = (time: number | null, error: number): string => {
+    if (time === null) {
+      return "-"
+    } else if (error === 0) {
       return "±0.00"
     } else if (time < 10) {
       return `-${error}`
