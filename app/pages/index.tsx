@@ -11,9 +11,7 @@ const Home: BlitzPage = () => {
       </div>
 
       <div className="h-3/4 flex justify-center items-center">
-        <Suspense fallback="Loading...">
-          <UserInfo />
-        </Suspense>
+        <UserInfo />
       </div>
     </>
   )
