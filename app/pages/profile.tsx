@@ -67,7 +67,7 @@ const Profile: BlitzPage = () => {
 
       <div className="h-1/4 flex flex-col justify-center items-center">
         <EditButton text="Delete My Score" onClick={handleDeleteScore} color="text-red-500" />
-        <EditButton text="Delete all data" onClick={handleDeleteUser} color="text-red-500" />
+        <EditButton text="Delete User" onClick={handleDeleteUser} color="text-red-500" />
       </div>
     </>
   )
