@@ -15,6 +15,8 @@ test.skip("renders blitz documentation link", () => {
   mockUseCurrentUser.mockReturnValue({
     id: 1,
     name: "User",
+    time: 9.98,
+    error: -0.02,
   })
 
   const { getByText } = render(<Home />)
