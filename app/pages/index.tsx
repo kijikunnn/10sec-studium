@@ -7,7 +7,7 @@ const Home: BlitzPage = () => {
   return (
     <>
       <div className="h-1/4 flex justify-center items-end">
-        <p className="text-6xl font-bold">10秒スタジアム</p>
+        <p className="text-5xl sm:text-6xl font-bold">10秒スタジアム</p>
       </div>
 
       <div className="h-3/4 flex justify-center items-center">
