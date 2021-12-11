@@ -10,7 +10,7 @@ const Layout: BlitzLayout<{ title?: string }> = ({ title, children }) => {
       </Head>
 
       <main className="sm:bg-gray-200 sm:h-screen">
-        <div className="sm:bg-white w-[500px] mx-auto h-screen">
+        <div className="sm:bg-white sm:w-[500px] w-screen mx-auto h-screen">
           <Suspense fallback="Loading...">{children}</Suspense>
         </div>
       </main>
