@@ -10,7 +10,15 @@ yarn install
 
 - [Get Started with Blitz](https://blitzjs.com/docs/get-started)
 
-Blitz.js をインストール後
+Blitz.js をインストール後，環境ファイル(.env.local)を作成し，
+
+```.env
+DATABASE_URL=[PostgreSQLのURL]
+
+GOOGLE_CLIENT_ID=[OAuth2.0クライアントID]
+GOOGLE_CLIENT_SECRET=[OAuth2.0クライアントシークレットID]
+```
+を追記後
 
 ```zsh
 blitz prisma migrate dev
