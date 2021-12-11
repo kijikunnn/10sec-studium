@@ -32,7 +32,7 @@ const Score: BlitzPage = () => {
     <>
       <TitleWithLink title="Ranking" />
 
-      <div className="px-2 py-3 m-2 bg-yellow-200 rounded-lg text-xl">
+      <div className="px-2 py-3 m-2 bg-yellow-500 rounded-lg text-xl">
         <ul className="flex justify-around">
           <li className="flex items-baseline">
             <div className="mr-1">My Best Score:</div>
@@ -48,7 +48,11 @@ const Score: BlitzPage = () => {
         {users.map((user, i: number) => (
           <li
             key={user.id}
-            className="flex justify-around p-2 m-3 bg-yellow-200 rounded-lg text-3xl font-bold"
+            className={
+              user.id === currentUser?.id
+                ? "flex justify-around p-2 m-3 bg-yellow-500 rounded-lg text-3xl font-bold"
+                : "flex justify-around p-2 m-3 bg-yellow-200 rounded-lg text-3xl font-bold"
+            }
           >
             <p className="font-medium">{i + 1}.</p>
             <p>{user.name}</p>
