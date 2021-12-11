@@ -39,7 +39,9 @@ const Game: BlitzPage = () => {
   return (
     <>
       <div className="h-2/5 flex flex-col items-center justify-end">
-        {isNewRecord && <div className="text-7xl text-red-500 font-bold mb-4">New Record</div>}
+        {isNewRecord && (
+          <div className="text-5xl sm:text-7xl text-red-500 font-bold mb-4">New Record</div>
+        )}
         <div className="bg-[#FFEE00] h-48 w-full rounded-2xl flex items-center">
           <div className="bg-black m-4 w-full rounded-2xl">
             <p
