@@ -1,5 +1,6 @@
 import { Head, BlitzLayout } from "blitz"
 import { Suspense } from "react"
+import { Loading } from "../components/Loading"
 
 const Layout: BlitzLayout<{ title?: string }> = ({ title, children }) => {
   return (
@@ -11,7 +12,7 @@ const Layout: BlitzLayout<{ title?: string }> = ({ title, children }) => {
 
       <main className="sm:bg-gray-200 sm:h-screen">
         <div className="sm:bg-white sm:w-[500px] w-screen mx-auto h-screen">
-          <Suspense fallback="Loading...">{children}</Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </div>
       </main>
     </>
