@@ -1,4 +1,4 @@
-import { BlitzPage, Link, useMutation } from "blitz"
+import { BlitzPage, Link, useMutation, useRouter } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import updateName from "app/users/mutations/updateName"
@@ -6,6 +6,7 @@ import { useState, VFC } from "react"
 import updateTime from "app/users/mutations/updateTime"
 import deleteUser from "app/users/mutations/deleteUser"
 import { TitleWithLink } from "app/core/components/TitleWithLink"
+import toast, { Toaster } from "react-hot-toast"
 
 type BUTTON_PROPS = {
   text: string
@@ -23,6 +24,7 @@ const EditButton: VFC<BUTTON_PROPS> = (props) => {
 }
 
 const Profile: BlitzPage = () => {
+  const router = useRouter()
   const currentUser = useCurrentUser()
   const [text, setText] = useState<string>("")
 
@@ -32,25 +34,37 @@ const Profile: BlitzPage = () => {
 
   const handleUpdateName = async () => {
     if (currentUser && text) {
+      toast.success("保存に成功しました")
       await updateNameMutation({ ...currentUser, name: text })
       setText("")
+    } else {
+      toast.error("保存に失敗しました")
     }
   }
 
   const handleDeleteScore = async () => {
     if (currentUser) {
       await updateTimeMutation({ ...currentUser, time: null, error: null })
+      toast.success("スコアを削除しました")
+    } else {
+      toast.error("ログインしてください")
+      router.push("/")
     }
   }
 
   const handleDeleteUser = async () => {
     if (currentUser) {
       await deleteUserMutation({ id: currentUser.id })
+      toast.success("ユーザーを削除しました")
+    } else {
+      toast.error("ログインしてください")
     }
+    router.push("/")
   }
 
   return (
     <>
+      <Toaster />
       <TitleWithLink title="Edit Profile" />
 
       <div className="h-1/4 flex flex-col justify-center items-center">
