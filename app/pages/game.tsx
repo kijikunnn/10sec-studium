@@ -56,17 +56,21 @@ const Game: BlitzPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-3/5 flex flex-col items-center justify-center">
+      <div className="h-3/5 flex flex-col items-center justify-evenly">
         <button
           onClick={isStart ? handleStop : handleStart}
-          className="w-[300px] h-20 bg-yellow-200 rounded-2xl text-gray-900 text-4xl font-bold focus:outline-none"
+          className="w-32 h-32 bg-yellow-200 rounded-full text-gray-900 text-4xl font-bold focus:outline-none shadow-md active:shadow-none active:mt-1"
         >
           {isStart ? "Stop" : "Start"}
         </button>
 
-        <Link href="/">
-          <a className="mt-8">{isStart !== 1 ? "\u226A Back to Home" : null}</a>
-        </Link>
+        {isStart !== 1 ? (
+          <Link href="/">
+            <a className="block mt-8">&#8810; Back to Home</a>
+          </Link>
+        ) : (
+          <div className="block mt-8 h-4" />
+        )}
       </div>
     </>
   )
